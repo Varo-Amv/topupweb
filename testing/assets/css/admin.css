@@ -1,0 +1,147 @@
+/* assets/css/admin.css — tidy version based on user's CSS */
+:root {
+  --bg: #f6f7fb;
+  --panel: #ffffff;
+  --brand: #0a0019;
+  --primary: #2980b9;
+  --primary-strong: #2563eb;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+}
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Inter,
+    Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+.container {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  min-height: calc(100vh - 56px);
+}
+.topbar {
+  background: var(--brand);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  height: 56px;
+}
+.logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.logo-img {
+  width: 48px;
+  height: 32px;
+  object-fit: contain;
+}
+.brand {
+  font-family: "Lexend Tera", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  font-size: 25px;
+}
+.profile-img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+.sidebar {
+  background: #fff;
+  border-right: 1px solid var(--border);
+  padding: 18px 10px;
+}
+.sidebar a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  margin: 6px 8px;
+  border-radius: 10px;
+  color: #374151;
+  text-decoration: none;
+}
+.sidebar a:hover {
+  background: #f3f4f6;
+}
+.sidebar a.active {
+  background: var(--primary-strong);
+  color: #fff;
+}
+.content {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+}
+.dashboard-header {
+  background: #0a0019 url("../images/bgblue.jpg") center/cover no-repeat;
+  color: #fff;
+  padding: 18px;
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+.dashboard-header h2 {
+  margin: 0 0 12px 0;
+}
+.cards-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.cards-row.stretch {
+  grid-template-columns: repeat(3, 1fr);
+}
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 12px;
+}
+.card.kpi {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /*align-items: flex-start;*/
+  height: 120px;
+}
+.kpi-title {
+  font-weight: 600;
+  font-size: 20px;
+  color: #000000;
+}
+.kpi-value {
+  font-size: 28px;
+  font-weight: 700;
+}
+.card.large {
+  min-height: 260px;
+}
+.card-title {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.footer {
+  height: 20px;
+}
+@media (max-width: 1024px) {
+  .container {
+    grid-template-columns: 200px 1fr;
+  }
+  .cards-row,
+  .cards-row.stretch {
+    grid-template-columns: 1fr;
+  }
+}
