@@ -309,5 +309,91 @@
       </section>
     </main>
     <footer class="footer"></footer>
+    <script>
+const API = '../assets/api/orders.php';
+
+// ambil referensi kontrol filter dari markup kamu
+const elQ       = document.querySelector('.panel .control .input');
+const elFrom    = document.querySelectorAll('.panel .input-date')[0];
+const elTo      = document.querySelectorAll('.panel .input-date')[1];
+const elStatus  = document.querySelectorAll('.panel .select')[0];
+const elChannel = document.querySelectorAll('.panel .select')[1];
+const tbody     = document.querySelector('.orders-table tbody');
+
+// KPI (yang di header)
+const kOrders  = document.querySelector('.cards-row .card.kpi .kpi-value');            // pertama
+const kRevenue = document.querySelector('.kpi--revenue .amount');                      // angka saja
+const kPend    = document.querySelectorAll('.cards-row .card.kpi .kpi-value')[2];      // ketiga
+
+function rupiah(x){ x=Number(x||0); return 'Rp ' + x.toLocaleString('id-ID'); }
+function chipStatus(s){ return `<span class="status-chip ${s}">${s}</span>`; }
+function chipPay(c){
+  const cls = (c||'').toLowerCase().replace(/\s+/g,'');
+  return `<span class="pay-chip ${cls}">${c||''}</span>`;
+}
+function avatarInit(name){
+  const init = (name||'?').trim().split(/\s+/).slice(0,2).map(w=>w[0]).join('').toUpperCase();
+  return `<div class="avatar">${init}</div>`;
+}
+function rowTpl(r){
+  return `<tr>
+    <td><code class="mono">${r.order_code||''}</code></td>
+    <td>
+      <div class="user-cell">
+        ${avatarInit(r.buyer_name)}
+        <div class="meta">
+          <div class="name">${escapeHtml(r.buyer_name||'')}</div>
+          <div class="sub">${escapeHtml(r.buyer_email||'')}</div>
+        </div>
+      </div>
+    </td>
+    <td>${escapeHtml(r.product_name||'')}</td>
+    <td>${r.qty||0}</td>
+    <td><span class="amount">${rupiah(r.subtotal||0)}</span></td>
+    <td>${chipPay(r.payment_channel||'')}</td>
+    <td>${chipStatus(r.status||'pending')}</td>
+    <td>${fmt(r.created_at)}</td>
+    <td>${fmt(r.updated_at)}</td>
+    <td>
+      <button class="btn btn-ghost" title="Lihat"><i class="fa fa-eye"></i></button>
+      <button class="btn btn-ghost" title="Edit"><i class="fa fa-pen"></i></button>
+      <button class="btn btn-ghost" title="More"><i class="fa fa-ellipsis-v"></i></button>
+    </td>
+  </tr>`;
+}
+function escapeHtml(s){return String(s||'').replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
+function fmt(s){ return s ? String(s).replace('T',' ') : '—'; }
+
+async function api(url){ const r = await fetch(url, {headers:{'X-Requested-With':'fetch'}}); return r.json(); }
+
+async function loadList(){
+  const q  = encodeURIComponent(elQ.value.trim());
+  const df = encodeURIComponent(elFrom.value || '');
+  const dt = encodeURIComponent(elTo.value   || '');
+  const st = encodeURIComponent(elStatus.value || 'all');
+  const ch = encodeURIComponent(elChannel.value || 'all');
+
+  const rows = await api(`${API}?action=list&q=${q}&from=${df}&to=${dt}&status=${st}&channel=${ch}`);
+  tbody.innerHTML = (rows && rows.length)
+    ? rows.map(rowTpl).join('')
+    : `<tr><td colspan="10" style="text-align:center; color:#6b7280; padding:16px;">Tidak ada data</td></tr>`;
+}
+
+async function loadKPI(){
+  const s = await api(`${API}?action=stats`);
+  if (kOrders)  kOrders.textContent  = (s.orders_today||0).toLocaleString('id-ID');
+  if (kRevenue) kRevenue.textContent = (s.revenue_today||0).toLocaleString('id-ID');
+  if (kPend)    kPend.textContent    = (s.pending_today||0).toLocaleString('id-ID');
+}
+
+// events
+let t; elQ.addEventListener('input', ()=>{ clearTimeout(t); t=setTimeout(loadList, 350); });
+[elFrom, elTo, elStatus, elChannel].forEach(el => el.addEventListener('change', loadList));
+
+// boot
+loadList();
+loadKPI();
+setInterval(loadKPI, 8000); // refresh KPI tiap 8 detik (realtime ringan)
+</script>
   </body>
 </html>
