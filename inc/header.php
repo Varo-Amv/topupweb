@@ -1,6 +1,8 @@
 <?php 
+session_start();
 include_once("inc/koneksi.php");
 ?>
+
 
   <head>
     <meta charset="utf-8" />
@@ -56,7 +58,34 @@ include_once("inc/koneksi.php");
           </svg>
           <span class="badge" aria-hidden="true">0</span>
         </a>
-        <a href="./login.php" class="btn btn-login">Masuk</a>
+        <?php
+$loggedIn = !empty($_SESSION['user']['id']);               // set saat login
+$isAdmin  = ($_SESSION['user']['role'] ?? '') === 'admin'; // role dari session
+$profileHref = $isAdmin ? 'admin/index.php' : 'profile.php';
+
+// Inisial untuk avatar teks (opsional, kalau mau pakai huruf)
+$initials = '';
+if ($loggedIn) {
+  $n = trim($_SESSION['user']['nama'] ?? $_SESSION['user']['name'] ?? ($_SESSION['user']['email'] ?? ''));
+  $parts = preg_split('/\s+/', $n);
+  $initials = strtoupper(substr($parts[0] ?? '', 0, 1) . substr($parts[1] ?? '', 0, 1));
+}
+?>
+
+<?php if ($loggedIn): ?>
+  <!-- Pilih salah satu: A) pakai gambar profile_white.png -->
+  <a href="<?= htmlspecialchars($profileHref) ?>" class="avatar-btn" title="Akun saya">
+    <img src="./image/profile_white.png" alt="Profil" class="avatar-img">
+  </a>
+
+  <!-- Atau B) pakai avatar huruf (komentari A, buka ini):
+  <a href="<?= htmlspecialchars($profileHref) ?>" class="avatar-btn avatar-text" title="Akun saya">
+    <?= htmlspecialchars($initials ?: 'ME') ?>
+  </a>
+  -->
+<?php else: ?>
+  <a href="./login.php" class="btn btn-login">Masuk</a>
+<?php endif; ?>
       </nav>
     </header>
     <div class="topbar-accent" aria-hidden="true"></div>

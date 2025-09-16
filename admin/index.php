@@ -4,6 +4,8 @@
 
 <?php
 require __DIR__.'/../inc/koneksi.php'; // pastikan file ini membuat $pdo (PDO) atau $koneksi (mysqli)
+require __DIR__.'/../inc/auth.php';
+require_role(['admin','staff']); // hanya admin/staff
 
 // Deteksi jenis koneksi
 $isPDO    = isset($pdo) && $pdo instanceof PDO;

@@ -1,78 +1,146 @@
 <?php
 include_once("inc/koneksi.php");
 include_once("inc/fungsi.php");
-?>
-<?php
-// Production-safe error handling
-error_reporting(E_ALL);                 // tetap laporkan semua error
-ini_set('display_errors', '0');         // JANGAN tampilkan ke browser
-ini_set('log_errors', '1');             // LOG saja
-ini_set('error_log', __DIR__ . '/php-error.log'); // lokasinya bebas
-// mysqli: jangan lempar warning ke output
+
+// ==== SESSION aman ====
+if (session_status() === PHP_SESSION_NONE) {
+  $secure = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off');
+  session_set_cookie_params([
+    'lifetime' => 0,
+    'path'     => '/',
+    'domain'   => '',
+    'secure'   => $secure,
+    'httponly' => true,
+    'samesite' => 'Lax',
+  ]);
+  session_start();
+}
+
+// ==== CSRF helper ====
+if (empty($_SESSION['csrf'])) {
+  $_SESSION['csrf'] = bin2hex(random_bytes(32));
+}
+function csrf_ok(?string $t): bool {
+  return isset($_SESSION['csrf']) && is_string($t) && hash_equals($_SESSION['csrf'], $t);
+}
+
+// ==== Error handling aman (log ke file, tidak tampil) ====
+error_reporting(E_ALL);
+ini_set('display_errors', '0');
+ini_set('log_errors', '1');
+ini_set('error_log', __DIR__ . '/php-error.log');
 mysqli_report(MYSQLI_REPORT_OFF);
-?>
-<style>
-  .error {
-    padding: 20px;
-    background-color: #f44336;
-    color: #FFFFFF;
-    margin-bottom: 15px;
+
+// ==== Variabel FORM ====
+$email    = "";
+$password = "";
+$err      = "";
+
+// ==== Proses Login ====
+if (isset($_POST['masuk'])) {
+  $email    = trim($_POST['email'] ?? '');
+  $password = $_POST['password'] ?? '';
+
+  if (!csrf_ok($_POST['csrf'] ?? '')) {
+    $err .= "<li>Sesi tidak valid. Silakan muat ulang halaman lalu coba lagi.</li>";
   }
 
-    .sukses {
-    padding: 20px;
-    background-color: #2196F3;
-    color: #FFFFFF;
-    margin-bottom: 15px;
+  if ($email === '' || $password === '') {
+    $err .= "<li>Email atau Password belum diisi.</li>";
   }
-</style>
 
-<?php
-$email      = "";
-$password   = "";
-$err        = "";
-
-if(isset($_POST['masuk'])){
-  $email      = $_POST['email'];
-  $password   = $_POST['password'];
-
-  if($email == '' or $password == ''){
-    $err .= "<li>Email atau Password belum di isi.</li>";
-  } else {
-    $sql1    = "select * from users where email = '$email'";
-    $q1      = mysqli_query($koneksi,$sql1);
-    $r1      = mysqli_fetch_array($q1);
-    $n1      = mysqli_num_rows($q1);
-
-    if($r1['status'] =='suspended' && $n1 > 0){
-      $err  .= "<li>Akun kamu kena suspend.</li>";
+  if (empty($err)) {
+    // cari user by email (prepared statement)
+    $user = null;
+    if ($stmt = $koneksi->prepare("SELECT id,nama,email,no_telp,password,role,status FROM users WHERE email = ? LIMIT 1")) {
+      $stmt->bind_param('s', $email);
+      $stmt->execute();
+      $res  = $stmt->get_result();
+      $user = $res->fetch_assoc() ?: null;
+      $stmt->close();
     }
 
-    if($r1['status'] !='active' && $n1 > 0 && $r1['status'] !='suspended'){
-      $err  .= "<li>Akun yang kamu miliki belum aktif</li>";
+    if (!$user) {
+      $err .= "<li>Akun tidak ditemukan.</li>";
+    } else {
+      // status akun
+      if ($user['status'] === 'suspended') {
+        $err .= "<li>Akun kamu kena suspend.</li>";
+      } elseif ($user['status'] !== 'active') {
+        $err .= "<li>Akun kamu belum aktif.</li>";
+      }
+
+      // cek password (dukung MD5 lama & Bcrypt baru)
+      if (empty($err)) {
+        $hash = $user['password'];
+
+        $ok = false;
+        if (preg_match('/^\$2y\$/', (string)$hash)) {
+          // bcrypt
+          $ok = password_verify($password, $hash);
+          // rehash jika perlu
+          if ($ok && password_needs_rehash($hash, PASSWORD_DEFAULT)) {
+            $new = password_hash($password, PASSWORD_DEFAULT);
+            if ($upd = $koneksi->prepare("UPDATE users SET password=? WHERE id=?")) {
+              $upd->bind_param('si', $new, $user['id']);
+              $upd->execute();
+              $upd->close();
+            }
+          }
+        } else {
+          // anggap MD5 legacy
+          $ok = (md5($password) === $hash);
+          // upgrade ke bcrypt jika cocok
+          if ($ok) {
+            $new = password_hash($password, PASSWORD_DEFAULT);
+            if ($upd = $koneksi->prepare("UPDATE users SET password=? WHERE id=?")) {
+              $upd->bind_param('si', $new, $user['id']);
+              $upd->execute();
+              $upd->close();
+            }
+          }
+        }
+
+        if (!$ok) {
+          $err .= "<li>Password tidak sesuai.</li>";
+        }
+      }
+    }
+  }
+
+  // Sukses: set session + redirect sesuai role
+  if (empty($err) && !empty($user)) {
+    session_regenerate_id(true);
+    $_SESSION['user'] = [
+      'id'    => (int)$user['id'],
+      'nama'  => $user['nama'],
+      'email' => $user['email'],
+      'role'  => strtolower($user['role'] ?? 'user'), // admin|staff|user/customer
+    ];
+
+    // update tgl_login
+    if ($upd = $koneksi->prepare("UPDATE users SET tgl_login = NOW() WHERE id = ?")) {
+      $upd->bind_param('i', $user['id']);
+      $upd->execute();
+      $upd->close();
     }
 
-    if($r1['password'] != md5($password) && $r1['status'] == 'active'){
-      $err  .= "<li>Password tidak sesuai.</li>";
-    }
-
-    if($n1 < 1){
-      $err  .= "<li>Akun tidak ditemukan.</li>";
-    }
-
-    if(empty($err) && $r1['role'] == 'admin'){
-      header('location:admin/index.php');
-      exit();
-    }
-
-    if(empty($err)){
-      header("location:index.php");
-      exit();
-    }
+    // admin/staff -> /admin/index.php, lainnya -> /index.php
+    $role  = $_SESSION['user']['role'];
+    $redir = ($role === 'admin' || $role === 'staff') ? 'admin/index.php' : 'index.php';
+    header("Location: {$redir}");
+    exit;
   }
 }
 ?>
-<?php if($err){ echo "<div class='error'><ul class='pesan'>$err</ul></div>";}?>
+
+<style>
+  .error{padding:20px;background:#f44336;color:#fff;margin-bottom:15px}
+  .sukses{padding:20px;background:#2196F3;color:#fff;margin-bottom:15px}
+</style>
+
+<?php if($err){ echo "<div class='error'><ul class='pesan'>$err</ul></div>"; } ?>
+
 <!DOCTYPE html>
 <html lang="id">
   <head>
@@ -110,6 +178,8 @@ if(isset($_POST['masuk'])){
         <h1 class="title">MASUK</h1>
 
         <form class="auth-form" action="#" method="post" novalidate>
+  <input type="hidden" name="csrf" value="<?=$_SESSION['csrf'] ?? ''?>">
+  <!-- ... input email & password ... -->
           <label class="field">
             <input
               type="email"
@@ -150,7 +220,7 @@ if(isset($_POST['masuk'])){
           </label>
 
           <div class="row between">
-            <a href="#" class="link small">Lupa Password?</a>
+            <a href="forgot_password.php" class="link small">Lupa Password?</a>
           </div>
 
           <input class="btn primary" type="submit" value="Masuk" name="masuk">

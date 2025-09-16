@@ -1,3 +1,7 @@
+<?php
+require __DIR__.'/../inc/auth.php';
+require_role(['admin','staff']); // hanya admin/staff
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
