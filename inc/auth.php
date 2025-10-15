@@ -31,7 +31,10 @@ function auth_login(string $email, string $password): ?array {
     'id'    => (int)$user['id'],
     'nama'  => $user['nama'],
     'email' => $user['email'],
+    'no_telp' => $user['no_telp'],
+    'password' => $user['password'],
     'role'  => strtolower($user['role'] ?? 'user'), // admin|staff|user/customer
+    'status'=> strtolower($user['status'] ?? 'active'),
   ];
 
   // update tgl_login
@@ -67,6 +70,12 @@ function require_login(): void {
     exit;
   }
 }
+function sudah_login(): void {
+  if (auth_logged_in()) {
+    header("Location: /topupweb/index.php");
+    exit;
+  }
+}
 function require_role($roles): void {
   require_login();
   if (!auth_has_role($roles)) {
@@ -75,7 +84,9 @@ function require_role($roles): void {
     exit;
   }
 }
-
+function wajib_login(string $loginPath = '/topupweb/login.php'): void {
+  require_login($loginPath);
+}
 function auth_logout(): void {
   $_SESSION = [];
   if (ini_get("session.use_cookies")) {

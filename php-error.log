@@ -50,3 +50,189 @@ Stack trace:
 #0 {main}
   thrown in C:\xampp\htdocs\topupweb\login.php on line 69
 [04-Sep-2025 14:29:43 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type int in C:\xampp\htdocs\topupweb\login.php on line 69
+[17-Sep-2025 15:46:14 Europe/Berlin] PHP Warning:  Undefined array key "user" in C:\xampp\htdocs\topupweb\profile.php on line 21
+[17-Sep-2025 15:47:00 Europe/Berlin] PHP Warning:  Undefined array key "user" in C:\xampp\htdocs\topupweb\profile.php on line 21
+[17-Sep-2025 15:52:24 Europe/Berlin] PHP Warning:  Undefined array key "user_id" in C:\xampp\htdocs\topupweb\profile.php on line 21
+[17-Sep-2025 15:52:53 Europe/Berlin] PHP Warning:  Undefined array key "user_id" in C:\xampp\htdocs\topupweb\profile.php on line 21
+[17-Sep-2025 15:52:53 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\topupweb\profile.php on line 194
+[17-Sep-2025 15:52:53 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\topupweb\profile.php on line 208
+[17-Sep-2025 15:52:53 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\topupweb\profile.php on line 210
+[17-Sep-2025 15:52:53 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\topupweb\profile.php on line 210
+[17-Sep-2025 15:52:53 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\topupweb\profile.php on line 211
+[17-Sep-2025 15:52:53 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\topupweb\profile.php on line 211
+[17-Sep-2025 15:52:53 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\topupweb\profile.php on line 212
+[17-Sep-2025 15:52:53 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\topupweb\profile.php on line 214
+[17-Sep-2025 15:52:53 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\topupweb\profile.php on line 214
+[17-Sep-2025 15:52:53 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\topupweb\profile.php on line 214
+[17-Sep-2025 15:52:53 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\topupweb\profile.php on line 215
+[17-Sep-2025 15:52:53 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\topupweb\profile.php on line 215
+[17-Sep-2025 15:52:53 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\topupweb\profile.php on line 215
+[17-Sep-2025 15:52:53 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\topupweb\profile.php on line 217
+[17-Sep-2025 15:52:53 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\topupweb\profile.php on line 218
+[17-Sep-2025 15:52:53 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\topupweb\profile.php on line 218
+[17-Sep-2025 15:52:53 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\topupweb\profile.php on line 225
+[17-Sep-2025 15:52:53 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\topupweb\profile.php on line 226
+[17-Sep-2025 15:52:53 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\topupweb\profile.php on line 226
+[17-Sep-2025 15:52:53 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\topupweb\profile.php on line 227
+[17-Sep-2025 15:52:53 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\topupweb\profile.php on line 241
+[17-Sep-2025 15:52:53 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\topupweb\profile.php on line 241
+[17-Sep-2025 15:52:53 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\topupweb\profile.php on line 245
+[17-Sep-2025 15:52:53 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\topupweb\profile.php on line 245
+[17-Sep-2025 15:52:53 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\topupweb\profile.php on line 249
+[17-Sep-2025 15:52:53 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\topupweb\profile.php on line 249
+[17-Sep-2025 15:53:06 Europe/Berlin] PHP Warning:  Undefined array key "user_id" in C:\xampp\htdocs\topupweb\profile.php on line 21
+[17-Sep-2025 15:53:06 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\topupweb\profile.php on line 194
+[17-Sep-2025 15:53:06 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\topupweb\profile.php on line 208
+[17-Sep-2025 15:53:06 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\topupweb\profile.php on line 210
+[17-Sep-2025 15:53:06 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\topupweb\profile.php on line 210
+[17-Sep-2025 15:53:06 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\topupweb\profile.php on line 211
+[17-Sep-2025 15:53:06 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\topupweb\profile.php on line 211
+[17-Sep-2025 15:53:06 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\topupweb\profile.php on line 212
+[17-Sep-2025 15:53:06 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\topupweb\profile.php on line 214
+[17-Sep-2025 15:53:06 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\topupweb\profile.php on line 214
+[17-Sep-2025 15:53:06 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\topupweb\profile.php on line 214
+[17-Sep-2025 15:53:06 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\topupweb\profile.php on line 215
+[17-Sep-2025 15:53:06 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\topupweb\profile.php on line 215
+[17-Sep-2025 15:53:06 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\topupweb\profile.php on line 215
+[17-Sep-2025 15:53:06 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\topupweb\profile.php on line 217
+[17-Sep-2025 15:53:06 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\topupweb\profile.php on line 218
+[17-Sep-2025 15:53:06 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\topupweb\profile.php on line 218
+[17-Sep-2025 15:53:06 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\topupweb\profile.php on line 225
+[17-Sep-2025 15:53:06 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\topupweb\profile.php on line 226
+[17-Sep-2025 15:53:06 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\topupweb\profile.php on line 226
+[17-Sep-2025 15:53:06 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\topupweb\profile.php on line 227
+[17-Sep-2025 15:53:06 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\topupweb\profile.php on line 241
+[17-Sep-2025 15:53:06 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\topupweb\profile.php on line 241
+[17-Sep-2025 15:53:06 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\topupweb\profile.php on line 245
+[17-Sep-2025 15:53:06 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\topupweb\profile.php on line 245
+[17-Sep-2025 15:53:06 Europe/Berlin] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\topupweb\profile.php on line 249
+[17-Sep-2025 15:53:06 Europe/Berlin] PHP Deprecated:  htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\xampp\htdocs\topupweb\profile.php on line 249
+[17-Sep-2025 15:54:07 Europe/Berlin] PHP Warning:  Undefined array key "user_id" in C:\xampp\htdocs\topupweb\profile.php on line 21
+[17-Sep-2025 15:54:07 Europe/Berlin] PHP Warning:  Undefined variable $pdo in C:\xampp\htdocs\topupweb\profile.php on line 25
+[17-Sep-2025 15:54:07 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xampp\htdocs\topupweb\profile.php:25
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\topupweb\profile.php on line 25
+[17-Sep-2025 15:54:11 Europe/Berlin] PHP Warning:  Undefined array key "user_id" in C:\xampp\htdocs\topupweb\profile.php on line 21
+[17-Sep-2025 15:54:11 Europe/Berlin] PHP Warning:  Undefined variable $pdo in C:\xampp\htdocs\topupweb\profile.php on line 25
+[17-Sep-2025 15:54:11 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xampp\htdocs\topupweb\profile.php:25
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\topupweb\profile.php on line 25
+[17-Sep-2025 15:54:44 Europe/Berlin] PHP Warning:  Undefined array key "user_id" in C:\xampp\htdocs\topupweb\profile.php on line 21
+[17-Sep-2025 15:54:44 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xampp\htdocs\topupweb\profile.php:25
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\topupweb\profile.php on line 25
+[17-Sep-2025 15:54:45 Europe/Berlin] PHP Warning:  Undefined array key "user_id" in C:\xampp\htdocs\topupweb\profile.php on line 21
+[17-Sep-2025 15:54:45 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xampp\htdocs\topupweb\profile.php:25
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\topupweb\profile.php on line 25
+[17-Sep-2025 15:54:47 Europe/Berlin] PHP Warning:  Undefined array key "user_id" in C:\xampp\htdocs\topupweb\profile.php on line 21
+[17-Sep-2025 15:54:47 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xampp\htdocs\topupweb\profile.php:25
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\topupweb\profile.php on line 25
+[17-Sep-2025 15:54:49 Europe/Berlin] PHP Warning:  Undefined array key "user_id" in C:\xampp\htdocs\topupweb\profile.php on line 21
+[17-Sep-2025 15:54:49 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xampp\htdocs\topupweb\profile.php:25
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\topupweb\profile.php on line 25
+[17-Sep-2025 15:54:49 Europe/Berlin] PHP Warning:  Undefined array key "user_id" in C:\xampp\htdocs\topupweb\profile.php on line 21
+[17-Sep-2025 15:54:49 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xampp\htdocs\topupweb\profile.php:25
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\topupweb\profile.php on line 25
+[17-Sep-2025 15:54:49 Europe/Berlin] PHP Warning:  Undefined array key "user_id" in C:\xampp\htdocs\topupweb\profile.php on line 21
+[17-Sep-2025 15:54:49 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function prepare() on null in C:\xampp\htdocs\topupweb\profile.php:25
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\topupweb\profile.php on line 25
+[17-Sep-2025 15:54:59 Europe/Berlin] PHP Warning:  Undefined array key "user_id" in C:\xampp\htdocs\topupweb\profile.php on line 21
+[17-Sep-2025 15:56:06 Europe/Berlin] PHP Warning:  Undefined array key "user_id" in C:\xampp\htdocs\topupweb\profile.php on line 21
+[18-Sep-2025 07:20:29 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ':id LIMIT 1' at line 1 in C:\xampp\htdocs\topupweb\profile.php:25
+Stack trace:
+#0 C:\xampp\htdocs\topupweb\profile.php(25): mysqli->prepare('SELECT id,nama,...')
+#1 {main}
+  thrown in C:\xampp\htdocs\topupweb\profile.php on line 25
+[18-Sep-2025 07:20:32 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ':id LIMIT 1' at line 1 in C:\xampp\htdocs\topupweb\profile.php:25
+Stack trace:
+#0 C:\xampp\htdocs\topupweb\profile.php(25): mysqli->prepare('SELECT id,nama,...')
+#1 {main}
+  thrown in C:\xampp\htdocs\topupweb\profile.php on line 25
+[18-Sep-2025 07:20:34 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ':id LIMIT 1' at line 1 in C:\xampp\htdocs\topupweb\profile.php:25
+Stack trace:
+#0 C:\xampp\htdocs\topupweb\profile.php(25): mysqli->prepare('SELECT id,nama,...')
+#1 {main}
+  thrown in C:\xampp\htdocs\topupweb\profile.php on line 25
+[18-Sep-2025 07:21:36 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ':id LIMIT 1' at line 1 in C:\xampp\htdocs\topupweb\profile.php:25
+Stack trace:
+#0 C:\xampp\htdocs\topupweb\profile.php(25): mysqli->prepare('SELECT id,nama,...')
+#1 {main}
+  thrown in C:\xampp\htdocs\topupweb\profile.php on line 25
+[18-Sep-2025 07:21:36 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ':id LIMIT 1' at line 1 in C:\xampp\htdocs\topupweb\profile.php:25
+Stack trace:
+#0 C:\xampp\htdocs\topupweb\profile.php(25): mysqli->prepare('SELECT id,nama,...')
+#1 {main}
+  thrown in C:\xampp\htdocs\topupweb\profile.php on line 25
+[18-Sep-2025 07:21:38 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ':id LIMIT 1' at line 1 in C:\xampp\htdocs\topupweb\profile.php:25
+Stack trace:
+#0 C:\xampp\htdocs\topupweb\profile.php(25): mysqli->prepare('SELECT id,nama,...')
+#1 {main}
+  thrown in C:\xampp\htdocs\topupweb\profile.php on line 25
+[18-Sep-2025 07:22:16 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ':id LIMIT 1' at line 1 in C:\xampp\htdocs\topupweb\profile.php:25
+Stack trace:
+#0 C:\xampp\htdocs\topupweb\profile.php(25): mysqli->prepare('SELECT id,nama,...')
+#1 {main}
+  thrown in C:\xampp\htdocs\topupweb\profile.php on line 25
+[18-Sep-2025 07:22:16 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ':id LIMIT 1' at line 1 in C:\xampp\htdocs\topupweb\profile.php:25
+Stack trace:
+#0 C:\xampp\htdocs\topupweb\profile.php(25): mysqli->prepare('SELECT id,nama,...')
+#1 {main}
+  thrown in C:\xampp\htdocs\topupweb\profile.php on line 25
+[18-Sep-2025 07:22:20 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ':id LIMIT 1' at line 1 in C:\xampp\htdocs\topupweb\profile.php:25
+Stack trace:
+#0 C:\xampp\htdocs\topupweb\profile.php(25): mysqli->prepare('SELECT id,nama,...')
+#1 {main}
+  thrown in C:\xampp\htdocs\topupweb\profile.php on line 25
+[25-Sep-2025 14:59:27 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'LIMIT 1' at line 1 in C:\xampp\htdocs\topupweb\profile.php:25
+Stack trace:
+#0 C:\xampp\htdocs\topupweb\profile.php(25): mysqli->prepare('SELECT id,nama,...')
+#1 {main}
+  thrown in C:\xampp\htdocs\topupweb\profile.php on line 25
+[25-Sep-2025 14:59:29 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'LIMIT 1' at line 1 in C:\xampp\htdocs\topupweb\profile.php:25
+Stack trace:
+#0 C:\xampp\htdocs\topupweb\profile.php(25): mysqli->prepare('SELECT id,nama,...')
+#1 {main}
+  thrown in C:\xampp\htdocs\topupweb\profile.php on line 25
+[25-Sep-2025 14:59:30 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'LIMIT 1' at line 1 in C:\xampp\htdocs\topupweb\profile.php:25
+Stack trace:
+#0 C:\xampp\htdocs\topupweb\profile.php(25): mysqli->prepare('SELECT id,nama,...')
+#1 {main}
+  thrown in C:\xampp\htdocs\topupweb\profile.php on line 25
+[25-Sep-2025 14:59:31 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'LIMIT 1' at line 1 in C:\xampp\htdocs\topupweb\profile.php:25
+Stack trace:
+#0 C:\xampp\htdocs\topupweb\profile.php(25): mysqli->prepare('SELECT id,nama,...')
+#1 {main}
+  thrown in C:\xampp\htdocs\topupweb\profile.php on line 25
+[25-Sep-2025 14:59:31 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'LIMIT 1' at line 1 in C:\xampp\htdocs\topupweb\profile.php:25
+Stack trace:
+#0 C:\xampp\htdocs\topupweb\profile.php(25): mysqli->prepare('SELECT id,nama,...')
+#1 {main}
+  thrown in C:\xampp\htdocs\topupweb\profile.php on line 25
+[28-Sep-2025 04:39:47 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'LIMIT 1' at line 1 in C:\xampp\htdocs\topupweb\profile.php:25
+Stack trace:
+#0 C:\xampp\htdocs\topupweb\profile.php(25): mysqli->prepare('SELECT id,nama,...')
+#1 {main}
+  thrown in C:\xampp\htdocs\topupweb\profile.php on line 25
+[28-Sep-2025 04:43:34 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'LIMIT 1' at line 1 in C:\xampp\htdocs\topupweb\profile.php:25
+Stack trace:
+#0 C:\xampp\htdocs\topupweb\profile.php(25): mysqli->prepare('SELECT id,nama,...')
+#1 {main}
+  thrown in C:\xampp\htdocs\topupweb\profile.php on line 25
+[28-Sep-2025 05:01:45 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'LIMIT 1' at line 1 in C:\xampp\htdocs\topupweb\profile.php:25
+Stack trace:
+#0 C:\xampp\htdocs\topupweb\profile.php(25): mysqli->prepare('SELECT id,nama,...')
+#1 {main}
+  thrown in C:\xampp\htdocs\topupweb\profile.php on line 25

@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Demi keamanan: tetap tampilkan pesan sukses meski email tidak terdaftar
     // agar tidak bocorkan eksistensi email.
     if (!$user) {
-      $msg = "Jika email terdaftar, link reset sudah dikirim.";
+      $err = "Email tidak terdaftar.";
     } else {
       // buat token
       $rawToken   = bin2hex(random_bytes(32));      // token yang dikirim ke user
@@ -64,16 +64,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                  <p>Jika kamu tidak meminta reset, abaikan email ini.</p>";
 
         // Coba kirim dengan mail() (bisa gagal di lokal). Tetap tampilkan $link di layar.
-        $headers  = "MIME-Version: 1.0\r\n";
-        $headers .= "Content-type: text/html; charset=UTF-8\r\n";
-        $headers .= "From: VAZATECH <no-reply@yourdomain.tld>\r\n";
+        $headers  = "Reset Password";
 
-        @mail($email, $subject, $html, $headers);
+        kirim_email($email,$subject,$headers,$html);
 
         // Pesan sukses
-        $msg = "Jika email terdaftar, link reset sudah dikirim.";
-        // Untuk DEV: tampilkan link agar bisa diuji
-        $msg .= "<br><small><em>DEV: Reset Link:</em> <a href='{$link}'>{$link}</a></small>";
+        $msg = "Link reset password telah dikirim ke email kamu. Silahkan cek inbox atau folder spam kamu.";
       } else {
         $err = "Terjadi kesalahan saat membuat token. Coba lagi.";
       }

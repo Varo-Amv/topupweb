@@ -72,13 +72,12 @@ if(!isset($_GET['email']) or !isset($_GET['kode'])){
     if($r1['status'] == $kode){
         $sql2   = "update users set status = 'active' where email = '$email'";
         mysqli_query($koneksi,$sql2);
-        $sukses = "Verifikasi Berhasil! Silahkan masuk di halaman login.";
+        $sukses = "Verifikasi Berhasil! Silahkan kembali ke halaman sebelumnya";
     } else {
         $err = "Kode tidak valid.";
     }
 }
 ?>
-<h3>Halaman Verifikasi</h3>
 
 <?php if($err): ?>
   <div class="vz-alert vz-alert--center" role="alert" aria-live="polite">
@@ -104,10 +103,14 @@ if(!isset($_GET['email']) or !isset($_GET['kode'])){
     </span>
     <span class="vz-alert__text"><?php echo htmlspecialchars($sukses, ENT_QUOTES, 'UTF-8'); ?></span>
     <span class="vz-alert__spacer"></span>
-    <a href="login.php" class="vz-btn vz-btn--light">Ke Halaman Login</a>
+    <a href="<?= url_dasar(). "/profile.php" ?>" class="vz-btn vz-btn--light">Kembali</a>
     <button class="vz-alert__close" onclick="this.parentElement.remove()" aria-label="Tutup">&times;</button>
   </div>
   <script>
     setTimeout(function(){ var el=document.querySelector('.vz-alert'); if(el) el.remove(); }, 8000);
+        function goBack(){
+      if (document.referrer && document.referrer !== location.href) history.back();
+      else window.location.href = 'profile.php';
+    }
   </script>
 <?php endif; ?>

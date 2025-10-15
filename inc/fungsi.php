@@ -1,4 +1,8 @@
 <?php
+function goBack_url(){
+    $goBack_url = htmlspecialchars($_SERVER['HTTP_REFERER']);
+    return $goBack_url;
+}
 function url_dasar(){
     //$_SERVER['SERVER_NAME'] : alamat website, misalkan websitemu.com
     //$_SERVER['SCRIPT_NAME'] : directory website, websitemu.com/blog/$_SERVER['SCRIPT_NAME']

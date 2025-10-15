@@ -1,7 +1,8 @@
 <?php
 include_once("inc/koneksi.php");
 include_once("inc/fungsi.php");
-
+require_once __DIR__ . '/inc/auth.php';
+sudah_login();
 // ==== SESSION aman ====
 if (session_status() === PHP_SESSION_NONE) {
   $secure = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off');
