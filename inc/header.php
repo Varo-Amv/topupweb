@@ -1,15 +1,14 @@
 <?php 
 session_start();
 include_once("inc/koneksi.php");
-require __DIR__ . '\fungsi.php';
 $sql = "SELECT * FROM users WHERE email = ?";
 $stmt = $koneksi->prepare($sql);
 $stmt->bind_param("s", $_SESSION['user']['email']);
 $stmt->execute();
 $result = $stmt->get_result();
 $user = $result->fetch_assoc();
-$profileHref = url_dasar().'/profile.php'; // atau 'profile.php' sesuai routing kamu
-$defaultAvatar = 'image/profile_white.png'; // sesuaikan path aset default-mu
+$profileHref = '../profile.php'; // atau 'profile.php' sesuai routing kamu
+$defaultAvatar = '../image/profile_white.png'; // sesuaikan path aset default-mu
 $avatarPath = $user['avatar_path'] ?? '';
 
 $avatarSrc = $avatarPath ? $avatarPath : $defaultAvatar;
