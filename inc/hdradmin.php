@@ -17,6 +17,7 @@ $avatarSrc = $avatarPath ? $avatarPath : $defaultAvatar;
       href="https://fonts.googleapis.com/css2?family=Lexend+Tera:wght@100..900&display=swap"
       rel="stylesheet"
     />
+    <link rel="icon" type="image/png" sizes="32x22" href="https://ibb.co.com/wZj6z85S">
     <link rel="stylesheet" href="../assets/css/admin.css" />
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
