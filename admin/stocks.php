@@ -8,47 +8,12 @@ require_role(['admin','staff']); // hanya admin/staff
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>VAZATECH · Admin · Dashboard</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lexend+Tera:wght@100..900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="../assets/css/admin.css" />
-    <script
-      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js"
-      integrity="sha384-7qAoOXltbVP82dhxHAUje59V5r2YsVfBafyUDxEdApLPmcdhBPg1DKg1ERo0BZlK"
-      crossorigin="anonymous"
-    ></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
-  </head>
-  <body>
-    <header>
-      <!-- Logo di kiri -->
-      <div class="logo">
-        <img src="../image/logo_nocapt.png" alt="Logo" />
-        <span class="logo">V A Z A T E C H</span>
-      </div>
-
-      <!-- Icon profile di kanan -->
-      <div class="profile">
-        <a href="../#"
-          ><img src="../image/profile_white.png" alt="Profile"
-        /></a>
-      </div>
-    </header>
+<?php include("../inc/hdradmin.php")?>
 
     <main class="container">
       <!-- Sidebar -->
       <aside class="sidebar">
         <a href="index.php"><i class="fas fa-home"></i>Dashboard</a>
-        <a href="chats.php"><i class="fas fa-comments"></i>Chats</a>
         <a href="#" class="active"><i class="fas fa-box"></i>Stocks</a>
         <a href="users.php"><i class="fas fa-users"></i>Users</a>
         <a href="orders.php"><i class="fas fa-shopping-cart"></i>Orders</a>

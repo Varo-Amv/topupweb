@@ -1,8 +1,8 @@
 <?php
 include_once("inc/koneksi.php");
-include_once("inc/fungsi.php");
+include_once("inc/fungsi.php"); 
 require_once __DIR__ . '/inc/auth.php';
-sudah_login();
+redirect_if_logged_in( (function_exists('url_dasar') ? url_dasar() : '.') . '/profile.php' );
 // ==== SESSION aman ====
 if (session_status() === PHP_SESSION_NONE) {
   $secure = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off');
@@ -128,7 +128,7 @@ if (isset($_POST['masuk'])) {
 
     // admin/staff -> /admin/index.php, lainnya -> /index.php
     $role  = $_SESSION['user']['role'];
-    $redir = ($role === 'admin' || $role === 'staff') ? 'admin/index.php' : 'index.php';
+    $redir = ($role === 'admin' || $role === 'staff') ? 'index.php' : 'index.php';
     header("Location: {$redir}");
     exit;
   }

@@ -70,7 +70,7 @@ if ($emailChanged) {
 if ($msg === '') {
   // Jika user mengganti email, siapkan status verifikasi + kirim email
   $statusCode = null;
-  if ($emailChanged) {
+ /* if ($emailChanged) {
     $statusCode = md5(random_int(0, 1000000)); // kode verifikasi
     $judul_email = "Verifikasi Email";
     $isi_email  = "Akun kamu dengan email <b>" . htmlspecialchars($email) . "</b> siap digunakan.<br>";
@@ -80,7 +80,7 @@ if ($msg === '') {
     // kirim email (fungsi dari inc/fungsi.php)
     // kirim_email($email, $nama, $judul_email, $isi_email) harus sudah tersedia
     kirim_email($email, $nama, $judul_email, $isi_email);
-  }
+  }*/
 
   // Siapkan UPDATE
   if ($pwd_new !== '') {
@@ -114,7 +114,7 @@ if ($msg === '') {
 
     $ok  = true;
     $msg = $emailChanged
-      ? "Profil berhasil diperbarui. Silakan cek email baru untuk verifikasi."
+      ? "Profil berhasil diubah. Email diperbarui."
       : "Profil berhasil diperbarui.";
 
     // Ambil ulang data terbaru untuk isi form

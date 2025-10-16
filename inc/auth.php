@@ -63,6 +63,26 @@ function auth_has_role($roles): bool {
 }
 
 /** Guards */
+// ... file lain di atas
+
+function need_login() {
+    if (empty($_SESSION['user']) || empty($_SESSION['user']['email'])) {
+        header("Location: login.php");
+        exit;
+    }
+}
+
+/**
+ * Jika sudah login, redirect dari halaman guest (login/register) ke tujuan.
+ * @param string $to URL tujuan kalau sudah login.
+ */
+function redirect_if_logged_in(string $to = 'index.php'): void {
+    if (!empty($_SESSION['user']) && !empty($_SESSION['user']['email'])) {
+        header("Location: {$to}");
+        exit;
+    }
+}
+
 function require_login(): void {
   if (!auth_logged_in()) {
     $redir = urlencode($_SERVER['REQUEST_URI'] ?? '/');

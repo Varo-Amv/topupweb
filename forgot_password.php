@@ -56,20 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $link  = $host . $base . "/reset_password.php?token=" . urlencode($rawToken) . "&email=" . urlencode($email);
 
         // kirim email (sederhana). Di lokal/XAMPP mungkin tidak terkirim—tampilkan link-nya di layar juga.
-        $subject = "Reset Password VAZATECH";
-        $html = "<p>Halo,</p>
-                 <p>Kami menerima permintaan reset password untuk akun <b>{$email}</b>.</p>
-                 <p>Klik link berikut untuk mengganti password (berlaku 1 jam):</p>
-                 <p><a href='{$link}'>{$link}</a></p>
-                 <p>Jika kamu tidak meminta reset, abaikan email ini.</p>";
-
-        // Coba kirim dengan mail() (bisa gagal di lokal). Tetap tampilkan $link di layar.
-        $headers  = "Reset Password";
-
-        kirim_email($email,$subject,$headers,$html);
-
-        // Pesan sukses
-        $msg = "Link reset password telah dikirim ke email kamu. Silahkan cek inbox atau folder spam kamu.";
+        $msg = "Silahkan klik link berikut untuk mereset password kamu (link berlaku 1 jam):<br><br><a href=\"$link\"><button class=\"btn primary block\">Link Reset</button></a> ";
       } else {
         $err = "Terjadi kesalahan saat membuat token. Coba lagi.";
       }
@@ -103,7 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <h1 class="title">LUPA PASSWORD</h1>
       <p class="desc">Masukkan email akun kamu. Kami akan mengirimkan link untuk mengganti password.</p>
 
-      <?php if ($msg): ?><div class="alert ok"><?= $msg ?></div><?php endif; ?>
+      <?php if ($msg): ?><div><?= $msg ?></div><?php endif; ?>
       <?php if ($err): ?><div class="alert err"><?= $err ?></div><?php endif; ?>
 
       <form class="auth-form" method="post" novalidate>
@@ -119,4 +106,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
   </div>
 </body>
+<script>
+  function PwRes(){
+    window.location.href = $link;
+  }
+</script>
 </html>

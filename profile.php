@@ -65,9 +65,12 @@ $avatarPath = !empty($user['avatar_path']) ? htmlspecialchars($user['avatar_path
       <input class="input" type="text" value="<?= htmlspecialchars($user['no_telp'] ?? '') ?>" readonly>
 
       <!-- Tombol Ganti yang rapi -->
-      <div class="actions">
-        <a class="btn btn-primary" href="<?= url_dasar()."/profile_edit.php" ?>">Edit Profile</a>
-      </div>
+<div class="actions">
+  <a class="btn btn-primary" href="<?= url_dasar()."/profile_edit.php" ?>">Edit Profile</a>
+  <a class="btn btn-danger" href="<?= url_dasar()."/logout.php" ?>" 
+     onclick="return confirm('Yakin ingin logout?');">Logout</a>
+</div>
+
     </form>
   </div>
 

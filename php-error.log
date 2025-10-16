@@ -236,3 +236,9 @@ Stack trace:
 #0 C:\xampp\htdocs\topupweb\profile.php(25): mysqli->prepare('SELECT id,nama,...')
 #1 {main}
   thrown in C:\xampp\htdocs\topupweb\profile.php on line 25
+[16-Oct-2025 10:51:36 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Lock wait timeout exceeded; try restarting transaction in C:\xampp\htdocs\topupweb\forgot_password.php:42
+Stack trace:
+#0 C:\xampp\htdocs\topupweb\forgot_password.php(42): mysqli_stmt->execute()
+#1 {main}
+  thrown in C:\xampp\htdocs\topupweb\forgot_password.php on line 42
+[16-Oct-2025 10:57:04 Europe/Berlin] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in Unknown on line 0

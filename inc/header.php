@@ -1,6 +1,18 @@
 <?php 
 session_start();
 include_once("inc/koneksi.php");
+require __DIR__ . '\fungsi.php';
+$sql = "SELECT * FROM users WHERE email = ?";
+$stmt = $koneksi->prepare($sql);
+$stmt->bind_param("s", $_SESSION['user']['email']);
+$stmt->execute();
+$result = $stmt->get_result();
+$user = $result->fetch_assoc();
+$profileHref = url_dasar().'/profile.php'; // atau 'profile.php' sesuai routing kamu
+$defaultAvatar = 'image/profile_white.png'; // sesuaikan path aset default-mu
+$avatarPath = $user['avatar_path'] ?? '';
+
+$avatarSrc = $avatarPath ? $avatarPath : $defaultAvatar;
 ?>
 
 
@@ -65,25 +77,19 @@ $profileHref = $isAdmin ? 'admin/index.php' : 'profile.php';
 
 // Inisial untuk avatar teks (opsional, kalau mau pakai huruf)
 $initials = '';
-if ($loggedIn) {
-  $n = trim($_SESSION['user']['nama'] ?? $_SESSION['user']['name'] ?? ($_SESSION['user']['email'] ?? ''));
-  $parts = preg_split('/\s+/', $n);
-  $initials = strtoupper(substr($parts[0] ?? '', 0, 1) . substr($parts[1] ?? '', 0, 1));
-}
-?>
+if ($loggedIn && $isAdmin): ?>
+  <!-- Admin: pakai tombol seperti tombol login -->
+  <a href="admin/index.php" class="btn btn-login">Admin Area</a>
 
-<?php if ($loggedIn): ?>
-  <!-- Pilih salah satu: A) pakai gambar profile_white.png -->
+<?php elseif ($loggedIn): ?>
+  <!-- User biasa: tampilkan avatar -->
   <a href="<?= htmlspecialchars($profileHref) ?>" class="avatar-btn" title="Akun saya">
-    <img src="./image/profile_white.png" alt="Profil" class="avatar-img">
+    <img src="<?= htmlspecialchars($avatarSrc) ?>" alt="Profil" class="avatar-img" loading="lazy"
+         onerror="this.onerror=null;this.src='<?= htmlspecialchars($defaultAvatar) ?>'">
   </a>
 
-  <!-- Atau B) pakai avatar huruf (komentari A, buka ini):
-  <a href="<?= htmlspecialchars($profileHref) ?>" class="avatar-btn avatar-text" title="Akun saya">
-    <?= htmlspecialchars($initials ?: 'ME') ?>
-  </a>
-  -->
 <?php else: ?>
+  <!-- Belum login -->
   <a href="./login.php" class="btn btn-login">Masuk</a>
 <?php endif; ?>
       </nav>

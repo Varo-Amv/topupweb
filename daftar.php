@@ -59,18 +59,10 @@ if ($no_telp === '' || !ctype_digit($no_telp)) {
 }
 
   if(empty($err)){
-    $status             = md5(rand(0,1000));
-    $judul_email        = "Verifikasi Email";
-    $isi_email          = "Akun yang kamu miliki dengan email <b>$email</b> telah siap digunakan.<br>";
-    $isi_email          .= "Sebelumnya silahkan melakukan aktivasi email menggunakan link dibawah ini:<br><br>";
-    $isi_email          .= url_dasar()."/verifikasi.php?email=$email&kode=$status";
-
-    kirim_email($email,$nama,$judul_email,$isi_email);
-
     $sql1       = "insert into users(nama,email,no_telp,password,role,status) values ('$nama','$email','$no_telp',md5($password),'user','$status')";
     $q1         = mysqli_query($koneksi,$sql1);
     if($q1){
-      $sukses = "Daftar Berhasil. Silahkan cek email kamu untuk verifikasi.";
+      $sukses = "Daftar Berhasil. Silahkan ke halaman login.";
     }
   }
 }

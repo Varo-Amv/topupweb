@@ -225,3 +225,32 @@ label {
   position: relative;
   z-index: 1;
 }
+/* Tombol merah untuk Logout */
+.btn-danger {
+  background: #ef4444; /* merah */
+  color: #fff;
+  border: 0;
+  border-radius: 12px;
+  padding: 12px 18px;
+  font-weight: 700;
+  box-shadow: 0 8px 20px rgba(239, 68, 68, 0.25);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: 0.18s ease;
+}
+.btn-danger:hover {
+  filter: brightness(1.05);
+}
+.btn-danger:active {
+  transform: translateY(1px);
+}
+
+/* (opsional) beri jarak antar tombol di bar actions */
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
