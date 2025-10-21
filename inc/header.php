@@ -18,7 +18,7 @@ $avatarSrc = $avatarPath ? $avatarPath : $defaultAvatar;
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/png" sizes="32x22" href="https://ibb.co.com/wZj6z85S">
+    <link rel="icon" type="image/png" sizes="32x32" href="../image/logo_nocapt.png" />
     <title>VAZATECH — Topup Game</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -73,7 +73,7 @@ $avatarSrc = $avatarPath ? $avatarPath : $defaultAvatar;
         <?php
 $loggedIn = !empty($_SESSION['user']['id']);               // set saat login
 $isAdmin  = ($_SESSION['user']['role'] ?? '') === 'admin'; // role dari session
-$profileHref = $isAdmin ? 'admin/index.php' : 'profile.php';
+$profileHref = $isAdmin ? 'admin/index.php' : 'profile';
 
 // Inisial untuk avatar teks (opsional, kalau mau pakai huruf)
 $initials = '';
@@ -90,7 +90,7 @@ if ($loggedIn && $isAdmin): ?>
 
 <?php else: ?>
   <!-- Belum login -->
-  <a href="./login.php" class="btn btn-login">Masuk</a>
+  <a href="./login" class="btn btn-login">Masuk</a>
 <?php endif; ?>
       </nav>
     </header>

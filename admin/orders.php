@@ -14,12 +14,13 @@ require_role(['admin','staff']); // hanya admin/staff
     <main class="container">
       <!-- Sidebar -->
       <aside class="sidebar">
-        <a href="index.php"><i class="fas fa-home"></i>Dashboard</a>
-        <a href="stocks.php"><i class="fas fa-box"></i>Stocks</a>
-        <a href="users.php"><i class="fas fa-users"></i>Users</a>
+        <a href="index"><i class="fas fa-home"></i>Dashboard</a>
+        <a href="stocks"><i class="fas fa-box"></i>Stocks</a>
+        <a href="users"><i class="fas fa-users"></i>Users</a>
         <a href="#" class="active"
           ><i class="fas fa-shopping-cart"></i>Orders</a
         >
+        <a href="blog-list"><i class="fas fa-newspaper"></i>Blog</a>
       </aside>
 
       <!-- Content -->

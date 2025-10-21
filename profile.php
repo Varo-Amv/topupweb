@@ -30,12 +30,12 @@ $avatarPath = !empty($user['avatar_path']) ? htmlspecialchars($user['avatar_path
   <div class="card">
     <div class="header" style="gap:10px; align-items:center;">
       <!-- Tombol kembali yang bagus & berfungsi -->
-      <a class="btn btn-back" type="button" title="Kembali" href="<?= url_dasar() ?>">&larr;</a>
+      <a class="btn btn-back" type="button" title="Kembali" href="<?= base_url() ?>">&larr;</a>
       <div class="title">Profile</div>
     </div>
 
     <!-- Avatar + Edit foto -->
-    <form id="avatar-form" action= "<?= url_dasar()."/assets/api/profile_upload.php" ?>" method="post" enctype="multipart/form-data">
+    <form id="avatar-form" action= "/assets/api/profile_upload" method="post" enctype="multipart/form-data">
       <input id="avatar-file" type="file" name="avatar" accept="image/*">
       <div class="avatar" id="avatar">
         <?php if ($avatarPath): ?>
@@ -66,8 +66,8 @@ $avatarPath = !empty($user['avatar_path']) ? htmlspecialchars($user['avatar_path
 
       <!-- Tombol Ganti yang rapi -->
 <div class="actions">
-  <a class="btn btn-primary" href="<?= url_dasar()."/profile_edit.php" ?>">Edit Profile</a>
-  <a class="btn btn-danger" href="<?= url_dasar()."/logout.php" ?>" 
+  <a class="btn btn-primary" href="<?= base_url()."/profile_edit" ?>">Edit Profile</a>
+  <a class="btn btn-danger" href="<?= base_url()."/logout.php" ?>" 
      onclick="return confirm('Yakin ingin logout?');">Logout</a>
 </div>
 
@@ -99,7 +99,7 @@ $avatarPath = !empty($user['avatar_path']) ? htmlspecialchars($user['avatar_path
       const img = document.createElement('img');
       img.src = url; img.alt = 'Preview';
       avatar.innerHTML = ''; avatar.appendChild(img);
-      const dot = document.createElement('span'); dot.className='edit-dot'; dot.textContent='📷'; avatar.appendChild(dot);
+      const dot = document.createElement('span'); dot.className='edit-dot'; dot.textContent=''; avatar.appendChild(dot);
 
       // Kirim ke server
       formAvatar.submit();
@@ -138,7 +138,7 @@ $avatarPath = !empty($user['avatar_path']) ? htmlspecialchars($user['avatar_path
     const dot = document.createElement('span');
     dot.className = 'edit-dot';
     dot.title = 'Ganti foto';
-    dot.textContent = '📷';
+    dot.textContent = '.';
     avatarBox.appendChild(dot);
 
     formAvatar.submit(); // upload

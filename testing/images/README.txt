@@ -1,1 +1,0 @@
-Place your images (logo_nocapt.png, profile_white.png, bgblue.jpg) in this folder.

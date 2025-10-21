@@ -6,7 +6,7 @@ $stmt->bind_param("s", $_SESSION['user']['email']);
 $stmt->execute();
 $result = $stmt->get_result();
 $user = $result->fetch_assoc();
-$profileHref = '../profile.php'; // atau 'profile.php' sesuai routing kamu
+$profileHref = '../profile'; // atau 'profile.php' sesuai routing kamu
 $defaultAvatar = '../image/profile_white.png'; // sesuaikan path aset default-mu
 $avatarPath = $user['avatar_path'] ?? '';
 
@@ -50,7 +50,7 @@ $isAdmin  = ($_SESSION['user']['role'] ?? '') === 'admin'; // role dari session
 $initials = '';
 if ($loggedIn): ?>
   <!-- User biasa: tampilkan avatar -->
-  <a href="../profile.php" class="avatar-btn" title="Akun saya">
+  <a href="../profile" class="avatar-btn" title="Akun saya">
     <img src="<?= htmlspecialchars($avatarSrc) ?>" alt="Profil" class="avatar-img" loading="lazy"
          onerror="this.onerror=null;this.src='<?= htmlspecialchars($defaultAvatar) ?>'">
   </a>

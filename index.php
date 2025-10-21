@@ -1,6 +1,5 @@
-<?php include("./inc/header.php")?>
-<?php include("./inc/koneksi.php")?>
-<?php
+<?php 
+include("./inc/koneksi.php");
 // Mulai session sekali untuk halaman ini
 if (session_status() !== PHP_SESSION_ACTIVE) {
   // (opsional tapi bagus)
@@ -11,16 +10,17 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 // BACA aman (tanpa warning)
 $users_email = $_SESSION['users_email'] ?? null;
 $users_name  = $_SESSION['users_name']  ?? null;
-?>
+// index.php
+$uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '');
 
-<?php
+// --- LOG KUNJUNGAN HALAMAN ---
 require __DIR__.'/inc/koneksi.php';
 date_default_timezone_set('Asia/Jakarta'); // sesuaikan
 
 $ip    = $_SERVER['REMOTE_ADDR']            ?? '0.0.0.0';
 $ua    = substr($_SERVER['HTTP_USER_AGENT'] ?? 'unknown', 0, 255);
-$path  = substr(parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '/', 0, 255);
-$ref   = substr($_SERVER['HTTP_REFERER'] ?? '', 0, 255);
+$path  = substr(parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH) ?: '/', 0, 255);
+$ref   = substr($_SERVER['HTTP_REFERER'] ?? '/', 0, 255);
 $today = date('Y-m-d');
 $now   = date('Y-m-d H:i:s');
 
@@ -72,7 +72,7 @@ if (!$skip) {
 }
 ?>
 
-
+<?php include("./inc/header.php"); ?>
 <!DOCTYPE html>
     <!-- konten demo (hapus/ubah sesuai kebutuhan) -->
     <main class="page">

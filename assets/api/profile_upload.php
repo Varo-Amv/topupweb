@@ -4,6 +4,7 @@ require $ROOT . '/inc/session.php';
 require $ROOT . '/inc/koneksi.php';
 require $ROOT . '/inc/auth.php';
 require $ROOT . '/inc/fungsi.php';
+require $ROOT . '/inc/env.php';
 require_login();
 
 function back_with($q){ header("Location: ../../profile.php?$q"); exit; }
@@ -23,7 +24,7 @@ $me = $stmt->get_result()->fetch_assoc();
 if (!$me) { header("Location: ../../logout.php"); exit; }
 
 // ==== Upload ke ImgBB ====
-$IMGBB_KEY = getenv('IMGBB_KEY') ?: '7e9d75cb5e0932b77617c49e8e94e549'; // <- taruh di env jika bisa
+$IMGBB_KEY = getenv('IMGBB_KEY') ?: $KeyGBB; // <- taruh di env jika bisa
 $res = upload_to_imgbb($_FILES['avatar']['tmp_name'], $_FILES['avatar']['name'], $IMGBB_KEY);
 
 if (!$res['ok']) {

@@ -1,8 +1,6 @@
-<?php include_once("../inc/koneksi.php"); ?>
-<?php include_once("../inc/fungsi.php"); ?>
-
-
-<?php
+<?php 
+include_once("../inc/koneksi.php");  
+include_once("../inc/fungsi.php");
 require __DIR__.'/../inc/koneksi.php'; // pastikan file ini membuat $pdo (PDO) atau $koneksi (mysqli)
 require __DIR__.'/../inc/auth.php';
 require_role(['admin','staff']); // hanya admin/staff
@@ -97,9 +95,10 @@ $rows = db_rows_rev("
     <main class="container">
       <div class="sidebar">
         <a href="#" class="active"><i class="fas fa-home"></i>Dashboard</a>
-        <a href="stocks.php"><i class="fas fa-box"></i>Stocks</a>
-        <a href="users.php"><i class="fas fa-users"></i>Users</a>
-        <a href="orders.php"><i class="fas fa-shopping-cart"></i>Orders</a>
+        <a href="stocks"><i class="fas fa-box"></i>Stocks</a>
+        <a href="users"><i class="fas fa-users"></i>Users</a>
+        <a href="orders"><i class="fas fa-shopping-cart"></i>Orders</a>
+        <a href="blog-list"><i class="fas fa-newspaper"></i>Blog</a>
       </div>
       <div class="content">
         <!-- Header Dashboard -->

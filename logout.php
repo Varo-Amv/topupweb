@@ -32,7 +32,7 @@ session_start();
 session_regenerate_id(true);
 
 // Tentukan tujuan redirect
-$redirectTo = function_exists('url_dasar') ? url_dasar() . '/' : 'index.php';
+$redirectTo = function_exists('url_dasar') ? url_dasar() . '' : 'index.php';
 // Jika tidak punya halaman login, bisa ganti ke beranda:
 // $redirectTo = function_exists('url_dasar') ? url_dasar() . '/' : 'index.php';
 

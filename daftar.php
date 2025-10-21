@@ -1,6 +1,8 @@
 <?php
 include_once("inc/koneksi.php");
 include_once("inc/fungsi.php");
+require_once __DIR__ . '/inc/auth.php';
+redirect_if_logged_in( (function_exists('url') ? url() : '.') . 'index.php' );
 ?>
 <style>
   .error {
@@ -57,14 +59,46 @@ if ($email === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
 if ($no_telp === '' || !ctype_digit($no_telp)) {
     $err .= 'Nomor telepon harus berisi angka saja.';
 }
+if (empty($_POST['agree'])) {
+  $err .= "<li>Anda harus menyetujui Syarat & Ketentuan.</li>";
+}
 
   if(empty($err)){
-    $sql1       = "insert into users(nama,email,no_telp,password,role,status) values ('$nama','$email','$no_telp',md5($password),'user','$status')";
-    $q1         = mysqli_query($koneksi,$sql1);
-    if($q1){
-      $sukses = "Daftar Berhasil. Silahkan ke halaman login.";
+    $status = bin2hex(random_bytes(16));
+
+    // Kirim email verifikasi
+    $judul_email = "Verifikasi Email • VAZATECH";
+    $verifLink   = url("/verifikasi.php?email=" . urlencode($email) . "&kode=" . urlencode($status));
+    $isi_email   = "
+      Hai <b>" . htmlspecialchars($nama) . "</b>,<br><br>
+      Akun kamu dengan email <b>" . htmlspecialchars($email) . "</b> hampir siap digunakan.<br>
+      Silakan verifikasi email kamu lewat tautan berikut:<br><br>
+      <a href='{$verifLink}' target='_blank' style='display:inline-block;padding:10px 14px;background:#1a73e8;color:#fff;border-radius:8px;text-decoration:none;'>Verifikasi Sekarang</a><br><br>
+      Atau salin URL ini ke browser:<br>
+      {$verifLink}<br>
+      Abaikan email ini jika kamu tidak melakukan pendaftaran.<br><br>
+      Terima kasih,<br>VAZATECH
+    ";
+
+    $send = kirim_email($email, $nama, $isi_email);
+    if (!$send['ok']) {
+      // boleh lanjut simpan user, tapi beri tahu bahwa email gagal terkirim
+       $err .= "<li>Gagal mengirim email verifikasi: ".htmlspecialchars($send['err'])."</li>";
+       return;
     }
-  }
+    //simpan data ke database
+      $hash = md5($password);
+      $role = 'user';
+
+      $ins = $koneksi->prepare("INSERT INTO users (nama,email,no_telp,password,role,status) VALUES (?,?,?,?,?,?)");
+      $ins->bind_param("ssssss", $nama, $email, $no_telp, $hash, $role, $status);
+      if ($ins->execute()) {
+        $sukses = "Daftar berhasil. Silakan cek email kamu untuk verifikasi.";
+        $email = $nama = $no_telp = "";
+      } else {
+        $err .= "<li>Gagal menyimpan data. Coba lagi.</li>";
+      }
+}
 }
 ?>
 <?php if($err){echo "<div class='error'><ul>$err</ul></div>";} ?>
@@ -75,6 +109,7 @@ if ($no_telp === '' || !ctype_digit($no_telp)) {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Daftar · VAZATECH</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="./image/logo_nocapt.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -160,11 +195,16 @@ if ($no_telp === '' || !ctype_digit($no_telp)) {
               minlength="8"
             />
           </label>
+<label class="field" style="display:flex; gap:8px; align-items:flex-start">
+  <input type="checkbox" name="agree" required style="margin-top:5px">
+  <span>Saya telah membaca dan menyetujui <a href="/snk" target="_blank" class="link strong">Syarat & Ketentuan</a> dan
+    <a href="/kebijakan-privasi" target="_blank" class="link strong">Kebijakan Privasi</a>.</span>
+</label>
 
           <input class="btn primary block" type="submit" value="Daftar" name="simpan">
           <p class="foot">
             Sudah punya akun?
-            <a href="./login.php" class="link strong">Masuk Disini</a>
+            <a href="./login" class="link strong">Masuk Disini</a>
           </p>
         </form>
       </div>

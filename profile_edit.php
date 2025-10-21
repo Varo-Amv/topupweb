@@ -75,7 +75,7 @@ if ($msg === '') {
     $judul_email = "Verifikasi Email";
     $isi_email  = "Akun kamu dengan email <b>" . htmlspecialchars($email) . "</b> siap digunakan.<br>";
     $isi_email .= "Silakan aktivasi email melalui tautan di bawah ini:<br><br>";
-    $isi_email .= url_dasar()."/verifikasi.php?email=" . urlencode($email) . "&kode=" . urlencode($statusCode);
+    $isi_email .= base_url()."/verifikasi.php?email=" . urlencode($email) . "&kode=" . urlencode($statusCode);
 
     // kirim email (fungsi dari inc/fungsi.php)
     // kirim_email($email, $nama, $judul_email, $isi_email) harus sudah tersedia
@@ -138,6 +138,7 @@ if ($msg === '') {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" type="image/png" sizes="32x32" href="./image/logo_nocapt.png" />
   <title>Ganti Profil</title>
   <link rel="stylesheet" href="assets/css/profile.css">
 </head>
@@ -145,7 +146,7 @@ if ($msg === '') {
   <div class="bg-rails"><div class="spacer"></div></div>
   <div class="card" style="max-width:560px;margin:24px auto;">
     <div class="header" style="gap:10px;align-items:center;">
-      <a class="btn btn-back" type="button" href="<?= url_dasar(). "/profile.php" ?>" title="Kembali">&larr;</a>
+      <a class="btn btn-back" type="button" href="<?= base_url(). "/profile" ?>" title="Kembali">&larr;</a>
       <div class="title">Ganti Profil</div>
     </div>
 
@@ -162,7 +163,7 @@ if ($msg === '') {
       <input class="input" type="text" name="nama" value="<?= htmlspecialchars($user['nama'] ?? '') ?>" required>
 
       <label>Alamat Email</label>
-      <input class="input" type="email" name="email" value="<?= htmlspecialchars($user['email'] ?? '') ?>" required>
+      <input class="input" type="email" name="email" value="<?= htmlspecialchars($user['email'] ?? '') ?>" readonly>
 
       <label>Nomor Telepon</label>
       <input class="input" type="text" name="no_telp" value="<?= htmlspecialchars($user['no_telp'] ?? '') ?>" required>
@@ -188,7 +189,7 @@ if ($msg === '') {
   <script>
     function goBack(){
       if (document.referrer && document.referrer !== location.href) history.back();
-      else window.location.href = 'profile.php';
+      else window.location.href = '/profile';
     }
   </script>
 </body>

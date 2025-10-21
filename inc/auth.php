@@ -67,7 +67,7 @@ function auth_has_role($roles): bool {
 
 function need_login() {
     if (empty($_SESSION['user']) || empty($_SESSION['user']['email'])) {
-        header("Location: login.php");
+        header("Location: login");
         exit;
     }
 }
@@ -85,14 +85,13 @@ function redirect_if_logged_in(string $to = 'index.php'): void {
 
 function require_login(): void {
   if (!auth_logged_in()) {
-    $redir = urlencode($_SERVER['REQUEST_URI'] ?? '/');
-    header("Location: /topupweb/login.php?redirect={$redir}");
+    header("Location: /login");
     exit;
   }
 }
 function sudah_login(): void {
   if (auth_logged_in()) {
-    header("Location: /topupweb/index.php");
+    header("Location: index.php");
     exit;
   }
 }
@@ -104,7 +103,7 @@ function require_role($roles): void {
     exit;
   }
 }
-function wajib_login(string $loginPath = '/topupweb/login.php'): void {
+function wajib_login(string $loginPath = '/login'): void {
   require_login($loginPath);
 }
 function auth_logout(): void {

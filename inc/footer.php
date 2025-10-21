@@ -48,20 +48,20 @@ if (!defined('VZ_FOOTER_CSS')):
       <div class="vz-col">
         <h4>Kontak Kami</h4>
         <div class="vz-social">
-          <a href="https://instagram.com/vazatech" aria-label="Instagram"><img src="./image/instagram.png" alt="Instagram"></a>
-          <a href="#" aria-label="TikTok"><img src="./image/tiktok.png" alt="TikTok"></a>
-          <a href="mailto:support@vazatech.id" aria-label="Email"><img src="./image/gmail.png" alt="Email"></a>
-          <a href="https://wa.me/62895402427731" aria-label="WhatsApp"><img src="./image/whatsapp.png" alt="WhatsApp"></a>
+          <a href="https://instagram.com/vazatech" aria-label="Instagram" target="_blank"><img src="./image/instagram.png" alt="Instagram"></a>
+          <a href="https://www.tiktok.com/@vazatech" aria-label="TikTok" target="_blank"><img src="./image/tiktok.png" alt="TikTok"></a>
+          <a href="mailto:contact@vazatech.store" aria-label="Email" target="_blank"><img src="./image/gmail.png" alt="Email"></a>
+          <a href="https://wa.me/62895402427731" aria-label="WhatsApp" target="_blank"><img src="./image/whatsapp.png" alt="WhatsApp"></a>
         </div>
 
         <div style="height:14px"></div>
 
         <h4>Tentang</h4>
         <ul class="vz-links">
-          <li><a href="#">Syarat &amp; Ketentuan</a></li>
-          <li><a href="#">Kebijakan Privasi</a></li>
-          <li><a href="#">Blog</a></li>
-          <li><a href="#">Affiliate</a></li>
+          <li><a href="./snk">Syarat &amp; Ketentuan</a></li>
+          <li><a href="./kebijakan-privasi">Kebijakan Privasi</a></li>
+          <li><a href="./blog">Blog</a></li>
+          <li><a href="./affiliate">Affiliate</a></li>
         </ul>
       </div>
 

@@ -72,6 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./image/logo_nocapt.png" />
   <title>Reset Password · VAZATECH</title>
   <link rel="stylesheet" href="./assets/css/login.css" />
   <style>
@@ -94,7 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
       <?php if ($msg): ?>
         <div class="alert ok"><?= $msg ?></div>
-        <p class="foot"><a href="./login.php" class="link strong">Ke halaman Masuk</a></p>
+        <p class="foot"><a href="./login" class="link strong">Ke halaman Masuk</a></p>
       <?php else: ?>
         <?php if ($err): ?><div class="alert err"><?= $err ?></div><?php endif; ?>
 
@@ -113,7 +114,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </form>
 
         <p class="foot">
-          Kembali ke <a class="link strong" href="./login.php">Masuk</a>
+          Kembali ke <a class="link strong" href="./login">Masuk</a>
         </p>
       <?php endif; ?>
     </div>

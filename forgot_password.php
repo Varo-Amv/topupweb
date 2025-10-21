@@ -70,6 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Lupa Password · VAZATECH</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="./image/logo_nocapt.png" />
   <link rel="stylesheet" href="./assets/css/login.css" />
   <style>
     .auth-card.outlined{ border:3px solid #2e6bff; }
@@ -101,7 +102,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </form>
 
       <p class="foot">
-        Kembali ke <a class="link strong" href="./login.php">Masuk</a>
+        Kembali ke <a class="link strong" href="./login">Masuk</a>
       </p>
     </div>
   </div>

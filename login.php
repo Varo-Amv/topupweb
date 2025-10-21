@@ -2,7 +2,7 @@
 include_once("inc/koneksi.php");
 include_once("inc/fungsi.php"); 
 require_once __DIR__ . '/inc/auth.php';
-redirect_if_logged_in( (function_exists('url_dasar') ? url_dasar() : '.') . '/profile.php' );
+redirect_if_logged_in( (function_exists('url') ? url() : '.') . 'index.php' );
 // ==== SESSION aman ====
 if (session_status() === PHP_SESSION_NONE) {
   $secure = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off');
@@ -147,6 +147,7 @@ if (isset($_POST['masuk'])) {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./image/logo_nocapt.png" />
     <title>Masuk · VAZATECH</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -221,7 +222,7 @@ if (isset($_POST['masuk'])) {
           </label>
 
           <div class="row between">
-            <a href="forgot_password.php" class="link small">Lupa Password?</a>
+            <a href="forgot_password" class="link small">Lupa Password?</a>
           </div>
 
           <input class="btn primary" type="submit" value="Masuk" name="masuk">
@@ -239,7 +240,7 @@ if (isset($_POST['masuk'])) {
 
           <p class="foot">
             Belum punya akun?
-            <a href="./daftar.php" class="link strong">Buat Disini</a>
+            <a href="./daftar" class="link strong">Buat Disini</a>
           </p>
         </form>
       </div>
