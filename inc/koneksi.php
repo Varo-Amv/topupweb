@@ -1,4 +1,5 @@
 <?php
+require __DIR__.'/env.php';
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT); // lempar exception
 $host = $ENV['DB_HOST'];
 $user = $ENV['DB_USER'];

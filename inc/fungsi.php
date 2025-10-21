@@ -1,6 +1,6 @@
 <?php
  include("koneksi.php");
- require $ROOT . '/inc/env.php';
+ require __DIR__.'/env.php';
 /**
  * Upload file gambar ke ImgBB dan mengembalikan URL publiknya.
  * @param string $tmpPath   path file sementara (mis. $_FILES['avatar']['tmp_name'])
