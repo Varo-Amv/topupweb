@@ -84,11 +84,11 @@ if (!defined('VZ_FOOTER_CSS')):
       <div class="vz-col">
         <h4>Pergi Ke</h4>
         <ul class="vz-links">
-          <li><a href="./index.html">Home</a></li>
-          <li><a href="./promo.html">Promo</a></li>
-          <li><a href="./cart.html">Keranjang</a></li>
-          <li><a href="./transaksi.html">Transaksi</a></li>
-          <li><a href="./notifikasi.html">Notifikasi</a></li>
+          <li><a href="./index.php">Home</a></li>
+          <li><a href="./promo">Promo</a></li>
+          <li><a href="./cart">Keranjang</a></li>
+          <li><a href="./transaksi">Transaksi</a></li>
+          <li><a href="./notifikasi">Notifikasi</a></li>
         </ul>
       </div>
     </div>

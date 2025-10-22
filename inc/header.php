@@ -79,7 +79,7 @@ $profileHref = $isAdmin ? 'admin/index.php' : 'profile';
 $initials = '';
 if ($loggedIn && $isAdmin): ?>
   <!-- Admin: pakai tombol seperti tombol login -->
-  <a href="admin/index.php" class="btn btn-login">Admin Area</a>
+  <a href="admin/index" class="btn btn-login">Admin Area</a>
 
 <?php elseif ($loggedIn): ?>
   <!-- User biasa: tampilkan avatar -->

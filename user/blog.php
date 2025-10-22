@@ -133,128 +133,24 @@ $domain = 'vazatech.store';
   <meta name="robots" content="noindex,follow">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <style>
-  :root{
-    --bg:#ffffff;          /* latar putih */
-    --text:#0f172a;        /* slate-900 */
-    --muted:#64748b;       /* slate-500/600 */
-    --line:#e5e7eb;        /* gray-200 */
-    --accent:#2563eb;      /* biru aksi */
-    --tile:#ffffff;        /* warna kartu */
-    --thumb:#e9ecef;       /* abu-abu thumbnail */
-  }
-  *{box-sizing:border-box}
-  body{
-    margin:0;
-    font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;
-    color:var(--text);
-    background:var(--bg);
-  }
-  .wrap{max-width:980px;margin:24px auto;padding:0 16px}
-  .header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
-  .brand{display:flex;align-items:center;gap:10px}
-  .logo-img{width:42px;height:42px;object-fit:contain;border-radius:10px;background:#eef2ff;padding:6px;box-shadow:0 6px 16px rgba(37,99,235,.15)}
-  h1{font-size:28px;margin:0}
-  .meta{color:var(--muted);font-size:14px}
-
-  /* ====== GRID TILES (seperti gambar contoh) ====== */
-.tiles{
-  display:grid;
-  grid-template-columns:repeat(auto-fill, minmax(230px, 1fr));
-  gap:22px;
-}
-  @media (max-width:920px){ .tiles{ grid-template-columns:repeat(3,1fr); } }
-  @media (max-width:640px){ .tiles{ grid-template-columns:repeat(2,1fr); } }
-  @media (max-width:420px){ .tiles{ grid-template-columns:1fr; } }
-
-/* Link pembungkus kartu supaya seluruh kartu bisa diklik */
-.tile-link{
-  display:block;
-  text-decoration:none;
-  color:inherit;
-}
-
-  .tile{
-  background:var(--tile);
-  border:1px solid var(--line);
-  border-radius:20px;
-  padding:18px;
-  transition:transform .12s ease, box-shadow .12s ease, border-color .12s ease;
-}
-.tile:hover{
-  transform:translateY(-3px);
-  box-shadow:0 12px 24px rgba(15,23,42,.10);
-  border-color:#dfe3ea;
-}
-
-/* Thumbnail */
-.tile-thumb{               /* placeholder abu-abu (tanpa gambar) */
-  height:112px;
-  border-radius:16px;
-  background:var(--thumb);
-  position:relative;
-}
-.tile-thumb::after{
-  content:"";
-  position:absolute; inset:10px;
-  border-radius:14px;
-  background:#dddfe3;
-}
-.tile-thumb-img{           /* bila ada gambar cover */
-  width:100%;
-  height:112px;
-  object-fit:cover;
-  border-radius:16px;
-  border:1px solid var(--line);
-  background:#f8fafc;
-}
-
-/* Teks */
-.tile-title{
-  margin:12px 2px 0;
-  font-size:15.5px;     /* sedikit lebih besar */
-  font-weight:800;
-  line-height:1.35;
-}
-.tile-meta{
-  margin:6px 2px 0;
-  font-size:12.5px;
-  color:var(--muted);
-}
-  .tile-actions{
-    margin-top:10px; display:flex; gap:8px; flex-wrap:wrap;
-  }
-  /* deskripsi singkat di kartu */
-.tile-desc{
-  margin:8px 2px 0;
-  font-size:13px;
-  line-height:1.5;
-  color:#334155; /* slate-700 */
-  display:-webkit-box;
-  -webkit-line-clamp: 3;     /* tampilkan max 3 baris */
-  -webkit-box-orient: vertical;
-  overflow:hidden;
-}
-
-  .btn{
-    display:inline-flex;align-items:center;justify-content:center;
-    padding:8px 12px;border-radius:12px;text-decoration:none;font-weight:700;
-    background:var(--accent);color:#fff;border:1px solid var(--accent);
-  }
-  .btn:hover{ filter:brightness(1.05); }
-</style>
+  <link rel="stylesheet" href="../assets/css/blog.css">
 
 </head>
 <body>
   <div class="wrap">
     <div class="header">
-      <div class="brand">
-        <img class="logo-img" src="<?= htmlspecialchars(function_exists('url')?url('image/logo_nocapt.png'):'/image/logo_nocapt.png') ?>" alt="VAZATECH" loading="lazy">
-        <div>
-          <h1>Blog</h1>
-          <div class="meta">Berita & artikel dari <?= htmlspecialchars($brand) ?></div>
-        </div>
-      </div>
+<div class="brand">
+  <div class="logo-wrap">
+    <img class="logo-img"
+         src="<?= htmlspecialchars(function_exists('url')?url('image/logo_nocapt.png'):'/image/logo_nocapt.png') ?>"
+         alt="VAZATECH" loading="lazy">
+  </div>
+  <div>
+    <h1>Blog</h1>
+    <div class="meta">Berita & artikel dari <?= htmlspecialchars($brand) ?></div>
+  </div>
+</div>
+
       <a class="btn" href="<?= htmlspecialchars($home) ?>">Beranda</a>
     </div>
 
