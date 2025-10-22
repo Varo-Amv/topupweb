@@ -3,6 +3,7 @@
 Aplikasi web top-up / manajemen pesanan sederhana berbasis **PHP** (XAMPP) dengan struktur modular (admin, user, assets, API).
 
 ## Fitur Utama
+
 - Autentikasi (login, logout, lupa/reset password, verifikasi).
 - Halaman profil & edit profil + upload foto.
 - Dashboard Admin: kelola blog, pesanan, stok, dan pengguna.
@@ -11,11 +12,13 @@ Aplikasi web top-up / manajemen pesanan sederhana berbasis **PHP** (XAMPP) denga
 - Integrasi **Composer** & **PHPMailer** (folder `vendor/`).
 
 ## Prasyarat
+
 - **XAMPP** (Apache + PHP + MySQL).
 - **Composer** (untuk `vendor/` jika belum tersedia).
 - PHP 8.x direkomendasikan.
 
 ## Struktur Direktori
+
 ```
 C:\xampp\htdocs\topupweb
 ├─ .htaccess
@@ -97,7 +100,7 @@ C:\xampp\htdocs\topupweb
 │  └─ session.php
 ├─ uploads/
 ├─ user/
-│  ├─ affiliate.php
+│  ├─ refund-policy.php
 │  ├─ blog.php
 │  ├─ index.php
 │  ├─ kebijakan-privasi.php
@@ -121,6 +124,7 @@ C:\xampp\htdocs\topupweb
 ```
 
 ## Konfigurasi & Menjalankan
+
 1. Taruh folder `topupweb` di `C:\xampp\htdocs\`.
 2. Jalankan **Apache** (dan **MySQL** jika dibutuhkan) dari XAMPP Control Panel.
 3. Buka di browser: `http://localhost/topupweb/`.
@@ -132,6 +136,7 @@ C:\xampp\htdocs\topupweb
    Pastikan ekstensi `openssl` aktif di `php.ini` untuk Composer/PHPMailer.
 
 ## Rute/Entry File Penting
+
 - `/index.php` — Beranda / landing.
 - `/login.php`, `/logout.php`, `/daftar.php`, `/verifikasi.php`, `/forgot_password.php`, `/reset_password.php`.
 - `/profile.php`, `/profile_edit.php`.
@@ -140,6 +145,7 @@ C:\xampp\htdocs\topupweb
 - API: `/assets/api/*.php` (orders, users, stocks, revenue_series, profile_upload).
 
 ## Keamanan (Checklist Singkat)
+
 - [ ] Filter & validasi semua input (GET/POST/FILES).
 - [ ] Gunakan **prepared statements** untuk query DB (hindari SQL injection).
 - [ ] Regenerasi session ID setelah login, atur `httponly` & `secure` untuk cookie.
@@ -148,4 +154,5 @@ C:\xampp\htdocs\topupweb
 - [ ] Sembunyikan error di produksi (set `display_errors=Off`, log ke file).
 
 ## Lisensi
+
 Internal project — sesuaikan per kebutuhan tim.
